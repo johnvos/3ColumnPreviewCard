@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,26 +8,160 @@
   
   <title>Frontend Mentor | 3-column preview card component</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+    @font-face {
+        font-family: BigShouldersDisplay;
+        src: url("fonts/BigShouldersDisplay-Bold.ttf");
+    }
+
+    @font-face {
+        font-family: LexendDeca;
+        src: url("fonts/LexendDeca-Regular.ttf");
+    }
+      
+    :root{
+        --float_cornerRadius:8px;
+        --color_brightOrange:hsl(31,77%,52%);
+        --color_darkCyan:hsl(184, 100%, 22%);
+        --color_veryDarkCyan:hsl(179, 100%, 13%);
+        --color_transparentWhite:hsl(0,0%,100%,0.75);
+        --color_lightGray:hsl(0,0%,95%);
+    }
+
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+
+    .main-body-flex{
+        display:flex;
+        justify-content:center;
+    }
+
+    .flex-container{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: nowrap;
+        justify-content:center;
+        width:50%;
+    }
+
+    .flex-first-item-cornerradius{
+        border-radius: var(--float_cornerRadius) 0px 0px var(--float_cornerRadius);
+    }
+
+    .flex-last-item-cornerradius {
+        border-radius: 0px var(--float_cornerRadius) var(--float_cornerRadius) 0px;
+    }
+
+    .flex-element {
+        padding: 36px;
+    }
+
+    @media (max-width: 800px){
+      .flex-container {
+          flex-direction: column;
+      }
+
+      .flex-first-item-cornerradius {
+          border-radius: var(--float_cornerRadius) var(--float_cornerRadius) 0px 0px;
+      }
+
+      .flex-last-item-cornerradius {
+          border-radius: 0px 0px var(--float_cornerRadius) var(--float_cornerRadius);
+      }
+
+    }
+
+    p.header{
+        font-family:BigShouldersDisplay;
+        text-transform:uppercase;
+        color:var(--color_lightGray);
+        font-size:45px;
+        margin-top:30px;
+        margin-bottom:15px;
+    }
+
+    p.content{
+        font-family:LexendDeca;
+        color:var(--color_transparentWhite);
+        font-size:15px;
+        margin-bottom:50px;
+        line-height:1.6;
+    }
+
+    .learnMoreButton1, .learnMoreButton2, .learnMoreButton3{
+        background-color: var(--color_lightGray);
+        border: 2px solid var(--color_lightGray);
+        border-radius: 30px;
+        font-family:LexendDeca;
+        padding:12px 24px;
+        font-size:16px;
+    }
+
+    .learnMoreButton1{
+        color:var(--color_brightOrange);
+    }
+
+    .learnMoreButton2{
+        color:var(--color_darkCyan);
+    }
+
+    .learnMoreButton3{
+        color:var(--color_veryDarkCyan);
+    }
+
+    .learnMoreButton1:hover, .learnMoreButton2:hover, .learnMoreButton3:hover{
+        background-color:transparent;
+        color:var(--color_lightGray);
+    }
+
   </style>
 </head>
-<body>
-  
-  Sedans
-  Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city 
-  or on your next road trip.
+<body style="background-color:var(--color_lightGray)">
+    <div class="main-body-flex" >
+        <div class="flex-container">
+            <div class="flex-element flex-first-item-cornerradius" style="background-color:var(--color_brightOrange)">
+                <img src="images/icon-sedans.svg"/>
+                <p class="header">
+                    Sedans
+                </p>
+                <p class="content">
+                    Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city
+                    or on your next road trip.
+                </p>
+                <button class="learnMoreButton1">
+                    Learn More
+                </button>
+            </div>
+            <div class="flex-element" style="background-color:var(--color_darkCyan)">
+                <img src="images/icon-suvs.svg" />
+                <p class="header">
+                    SUVs
+                </p>
+                <p class="content">
+                    Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation
+                    and off-road adventures.
+                </p>
+                <button class="learnMoreButton2">
+                    Learn More
+                </button>
+            </div>
+            <div class="flex-element flex-last-item-cornerradius" style="background-color:var(--color_veryDarkCyan)">
+                <img src="images/icon-luxury.svg" />
+                <p class="header">
+                    Luxury
+                </p>
+                <p class="content">
+                    Cruise in the best car brands without the bloated prices. Enjoy the enhanced comfort of a luxury
+                    rental and arrive in style.
+                </p>
+                <button class="learnMoreButton3">
+                    Learn More
+                </button>
 
-  SUVs
-  Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation 
-  and off-road adventures.
+            </div>
+        </div>
+    </div>
 
-  Luxury
-  Cruise in the best car brands without the bloated prices. Enjoy the enhanced comfort of a luxury 
-  rental and arrive in style.
-  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
